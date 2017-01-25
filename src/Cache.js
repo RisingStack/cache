@@ -30,6 +30,10 @@ export default class Cache<K, V> {
     return Promise.all(this.stores.map((store) => store.set(key, value, options)))
   }
 
+  async delete(key: K): Promise<Array<*>> {
+    return Promise.all(this.stores.map((store) => store.delete(key)))
+  }
+
   clear() {
     this.stores.forEach((store) => store.clear())
   }
@@ -73,5 +77,10 @@ export default class Cache<K, V> {
         hitCount: stats.hitCount + hitCount
       }
     }, { getCount: 0, hitCount: 0 })
+  }
+
+  resetStats(): StoreStats {
+    this.stores.forEach((store) => store.resetStats())
+    return this.getStats()
   }
 }

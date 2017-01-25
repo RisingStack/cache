@@ -28,7 +28,7 @@ export default class Value<V> {
   }
 
   isExpired(): boolean {
-    if (typeof this.expireAt === 'undefined') {
+    if (!this.expireAt) {
       return false
     }
 
@@ -36,7 +36,7 @@ export default class Value<V> {
   }
 
   isStale(): boolean {
-    if (typeof this.staleAt === 'undefined') {
+    if (!this.staleAt) {
       return false
     }
 

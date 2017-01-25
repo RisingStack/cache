@@ -3,12 +3,13 @@ import Value from './Value'
 // eslint-disable-next-line no-undef
 declare interface Store<K, V> {
   get(key: K): Promise<?Value<V>>;
-  set(key: K, value: V, options: TTLOptions): any;
-  delete(key: K): any;
+  set(key: K, value: V, options: TTLOptions): Promise<Value<V>>;
+  delete(key: K): Promise<*>;
   clear(): any;
+  size(): Promise<number>;
 
   getStats(): StoreStats;
-  resetStats(): any;
+  resetStats(): StoreStats;
 }
 
 declare type TTLOptions = {

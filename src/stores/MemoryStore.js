@@ -31,8 +31,9 @@ export default class MemoryStore<V> {
     return Promise.resolve(val)
   }
 
-  delete(key: string) {
+  delete(key: string): Promise<*> {
     this.store.delete(key)
+    return Promise.resolve()
   }
 
   clear() {
@@ -53,6 +54,6 @@ export default class MemoryStore<V> {
       hitCount: 0
     }
 
-    return this.stats
+    return this.getStats()
   }
 }
