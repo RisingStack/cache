@@ -1,0 +1,10 @@
+[ignore]
+.*/dist/.*
+.*/.history/.*
+
+[include]
+
+[libs]
+src/globals.js
+
+[options]

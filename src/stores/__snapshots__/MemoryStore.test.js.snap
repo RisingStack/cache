@@ -1,0 +1,49 @@
+exports[`MemoryStore .clear() should clear the store 1`] = `
+MemoryStore {
+  "stats": Object {
+    "getCount": 2,
+    "hitCount": 1,
+  },
+  "store": Array [],
+}
+`;
+
+exports[`MemoryStore .delete() should delete an item 1`] = `
+MemoryStore {
+  "stats": Object {
+    "getCount": 2,
+    "hitCount": 1,
+  },
+  "store": Array [],
+}
+`;
+
+exports[`MemoryStore .get() should return a Promise 1`] = `
+MemoryStore {
+  "stats": Object {
+    "getCount": 2,
+    "hitCount": 1,
+  },
+  "store": Array [
+    Array [
+      "existing",
+      "{\"value\":{\"val\":1},\"options\":{}}",
+    ],
+  ],
+}
+`;
+
+exports[`MemoryStore .set() should set a value with ttl options 1`] = `
+MemoryStore {
+  "stats": Object {
+    "getCount": 1,
+    "hitCount": 1,
+  },
+  "store": Array [
+    Array [
+      "key",
+      "{\"value\":{\"val\":1},\"options\":{\"stale\":5,\"expire\":10}}",
+    ],
+  ],
+}
+`;
