@@ -8,23 +8,20 @@
   ],
   "license": "BSD-3-Clause",
   "scripts": {
-    "test": "jest",
+    "test-only": "jest",
     "lint": "eslint src",
     "check": "flow check",
+    "test": "npm run lint && npm run check && npm run test-only",
     "build": "rimraf dist; babel src --out-dir dist --ignore '**/*.test.*'"
   },
   "jest": {
     "testEnvironment": "node"
   },
   "prepublish": [
-    "npm run lint",
-    "npm run check",
     "npm test",
     "npm run build"
   ],
   "pre-commit": [
-    "lint",
-    "check",
     "test"
   ],
   "devDependencies": {
@@ -36,7 +33,7 @@
     "babel-plugin-transform-flow-strip-types": "6.22.0",
     "babel-preset-es2016": "6.22.0",
     "eslint": "3.14.0",
-    "eslint-config-airbnb": "14.0.0",
+    "eslint-config-airbnb-base": "11.0.1",
     "eslint-plugin-flowtype": "2.30.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "3.0.2",
