@@ -147,7 +147,9 @@ describe('Cache', () => {
     it('should refresh the value if it is expired', async () => {
       const item = { val: 1 }
       const wrappedFunction = jest.fn(() => Promise.resolve(item))
-      cache.set('key', item, { expire: 0 })
+      cache.set('key', item)
+      const value = await cache.get('key')
+      sinon.stub(value, 'isExpired', () => true)
 
       expect(cache).toMatchSnapshot()
 

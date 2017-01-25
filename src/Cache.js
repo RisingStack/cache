@@ -44,13 +44,14 @@ export default class Cache<K, V> {
     return value
   }
 
-  async wrap(key: K, func: Function, options: TTLOptions): Promise<?V> {
+  async wrap(key: K, func: (K | void) => Promise<V> | V, options: TTLOptions): Promise<?V> {
     const value = await this.get(key)
 
     // try to refresh if not in cache or the value is expired
     if (!value || value.isExpired()) {
       try {
-        return await this.refresh(key, func, options)
+        const result = await this.refresh(key, func, options)
+        return result
       } catch (ex) {
         // throw error if the value is outdated
         if (!value || (value && value.isStale())) {

@@ -1,1 +1,1 @@
-export default from './Cache'
+export { default } from './Cache'

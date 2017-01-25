@@ -133,13 +133,13 @@ Cache {
   "stores": Array [
     MemoryStore {
       "stats": Object {
-        "getCount": 0,
-        "hitCount": 0,
+        "getCount": 1,
+        "hitCount": 1,
       },
       "store": Array [
         Array [
           "key",
-          "{\"value\":{\"val\":1},\"options\":{\"expire\":0}}",
+          "{\"value\":{\"val\":1},\"options\":{}}",
         ],
       ],
     },
@@ -151,7 +151,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\"value\":{\"val\":1},\"options\":{\"expire\":0}}",
+          "{\"value\":{\"val\":1},\"options\":{}}",
         ],
       ],
     },
@@ -164,8 +164,8 @@ Cache {
   "stores": Array [
     MemoryStore {
       "stats": Object {
-        "getCount": 1,
-        "hitCount": 1,
+        "getCount": 2,
+        "hitCount": 2,
       },
       "store": Array [
         Array [
