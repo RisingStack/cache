@@ -1,4 +1,3 @@
-import sinon from 'sinon'
 import Cache from './Cache'
 import Value from './Value'
 import MemoryStore from './stores/MemoryStore'
@@ -69,6 +68,20 @@ describe('Cache', () => {
         getCount: 2,
         hitCount: 1
       }])
+    })
+
+    it('should emit an error when a store fails to get an item', async () => {
+      const error = new Error('internal error')
+      stores[0].get = () => Promise.reject(error)
+      cache.emit = jest.fn()
+
+      const key = 'key'
+      await cache.get(key)
+
+      expect(cache.emit).toHaveBeenCalledWith('error', 'Failed to get an item from store', {
+        key,
+        error
+      })
     })
   })
 
@@ -149,7 +162,7 @@ describe('Cache', () => {
       const wrappedFunction = jest.fn(() => Promise.resolve(item))
       cache.set('key', item)
       const value = await cache.get('key')
-      sinon.stub(value, 'isExpired', () => true)
+      value.isExpired = () => true
 
       expect(cache).toMatchSnapshot()
 
@@ -167,8 +180,8 @@ describe('Cache', () => {
       const wrappedFunction = jest.fn(() => Promise.reject(new Error('error')))
       cache.set('key', item)
       const value = await cache.get('key')
-      sinon.stub(value, 'isExpired', () => true)
-      sinon.stub(value, 'isStale', () => false)
+      value.isExpired = () => true
+      value.isStale = () => false
 
       expect(cache).toMatchSnapshot()
 
@@ -200,8 +213,8 @@ describe('Cache', () => {
       const wrappedFunction = jest.fn(() => Promise.reject(error))
       cache.set('key', { val: 1 })
       const value = await cache.get('key')
-      sinon.stub(value, 'isExpired', () => true)
-      sinon.stub(value, 'isStale', () => true)
+      value.isExpired = () => true
+      value.isStale = () => true
 
       let ex
       try {

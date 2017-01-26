@@ -1,25 +1,38 @@
 /* @flow */
 
+import EventEmitter from 'events'
 import Value from './Value'
 
-export default class Cache<K, V> {
+export default class Cache<K, V> extends EventEmitter {
   stores: Array<Store<K, V>>
 
   constructor(stores: Array<Store<K, V>>) {
+    super()
+
     if (!Array.isArray(stores) || !stores.length) {
       throw new TypeError('`stores` must be an Array with at least one Store')
     }
 
     this.stores = stores
+
+    // dummy error listener
+    this.on('error', () => {})
   }
 
   async get(key: K): Promise<?Value<V>> {
     // eslint-disable-next-line no-restricted-syntax
     for (const store of this.stores) {
-      // eslint-disable-next-line no-await-in-loop
-      const value = await store.get(key)
-      if (value) {
-        return value
+      try {
+        // eslint-disable-next-line no-await-in-loop
+        const value = await store.get(key)
+        if (value) {
+          return value
+        }
+      } catch (error) {
+        this.emitError('Failed to get an item from store', {
+          key,
+          error
+        })
       }
     }
 
@@ -82,5 +95,9 @@ export default class Cache<K, V> {
   resetStats(): StoreStats {
     this.stores.forEach((store) => store.resetStats())
     return this.getStats()
+  }
+
+  emitError(message: string, context: { error: Error }) {
+    this.emit('error', message, context)
   }
 }

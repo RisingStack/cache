@@ -1,5 +1,11 @@
 exports[`Cache .get() should check for the value in every store 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -21,6 +27,12 @@ Cache {
 
 exports[`Cache .get() should check for the value in every store 2`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -42,6 +54,12 @@ Cache {
 
 exports[`Cache .get() should check for the value in every store 3`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -68,6 +86,12 @@ Cache {
 
 exports[`Cache .get() should return a Promise<Value> 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -99,6 +123,12 @@ Cache {
 
 exports[`Cache .refresh() should refresh the cache with the returned value 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -130,6 +160,12 @@ Cache {
 
 exports[`Cache .wrap should refresh the value if it is expired 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -161,6 +197,12 @@ Cache {
 
 exports[`Cache .wrap should refresh the value if it is expired 2`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -192,6 +234,12 @@ Cache {
 
 exports[`Cache .wrap should refresh the value if it is not in the cache 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -213,6 +261,12 @@ Cache {
 
 exports[`Cache .wrap should refresh the value if it is not in the cache 2`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -244,6 +298,12 @@ Cache {
 
 exports[`Cache .wrap should return the value if it is expired but stale and the wrapped function fails 1`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -275,6 +335,12 @@ Cache {
 
 exports[`Cache .wrap should return the value if it is expired but stale and the wrapped function fails 2`] = `
 Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
   "stores": Array [
     MemoryStore {
       "stats": Object {
