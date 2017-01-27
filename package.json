@@ -31,6 +31,7 @@
     "babel-plugin-transform-async-to-generator": "6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "6.22.0",
     "babel-plugin-transform-flow-strip-types": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.22.0",
     "babel-preset-es2016": "6.22.0",
     "eslint": "3.14.0",
     "eslint-config-airbnb-base": "11.0.1",
@@ -45,6 +46,7 @@
     "sinon": "1.17.7"
   },
   "dependencies": {
-    "ioredis": "2.5.0"
+    "ioredis": "2.5.0",
+    "lodash.isplainobject": "4.0.6"
   }
 }
