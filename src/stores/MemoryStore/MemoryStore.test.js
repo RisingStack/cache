@@ -1,5 +1,5 @@
 import MemoryStore from './MemoryStore'
-import Value from '../Value'
+import Value from '../../Value'
 
 describe('MemoryStore', () => {
   let store

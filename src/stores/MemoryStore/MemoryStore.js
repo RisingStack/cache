@@ -1,6 +1,6 @@
 /* @flow */
 
-import Value from '../Value'
+import Value from '../../Value'
 
 export default class MemoryStore<V> {
   store: Map<string, Value<V>>;
