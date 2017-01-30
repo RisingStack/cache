@@ -1,8 +1,8 @@
 {
-  "presets": ["es2016"],
+  "presets": ["es2015-node4", "es2016"],
   "plugins": [
     "transform-async-to-generator",
     "transform-flow-strip-types",
-    "transform-es2015-modules-commonjs"
+    "add-module-exports"
   ]
 }
