@@ -51,17 +51,28 @@ export default class Cache<K, V> extends EventEmitter {
     this.stores.forEach((store) => store.clear())
   }
 
-  async refresh(key: K, func: (K | void) => Promise<V> | V, options: TTLOptions): Promise<V> {
-    const value = await func(key)
+  async refresh(key: K,
+    func: (K | void) => Promise<V> | V | Promise<wrappedValue<V>> | wrappedValue<V>,
+    options: TTLOptions): Promise<V> {
+    let value = await func(key)
+    let cacheOptions = options
 
-    process.nextTick(() => {
-      this.stores.forEach((store) => store.set(key, value, options))
-    })
+    if (value) {
+      if (value.value && value.cacheOptions) {
+        cacheOptions = value.cacheOptions
+        value = value.value
+      }
+
+      process.nextTick(() => {
+        // $FlowFixMe: flow fails to recognize as correct param types
+        this.stores.forEach((store) => store.set(key, value, cacheOptions))
+      })
+    }
 
     return value
   }
 
-  async wrap(key: K, func: (K | void) => Promise<V> | V, options: TTLOptions): Promise<?V> {
+  async wrap(key: K, func: Function, options: TTLOptions): Promise<?V> {
     const value = await this.get(key)
 
     // try to refresh if not in cache or the value is expired
@@ -101,3 +112,5 @@ export default class Cache<K, V> extends EventEmitter {
     this.emit('error', message, context)
   }
 }
+
+type wrappedValue<V> = { value: V, cacheOptions: TTLOptions }

@@ -1,2 +1,4 @@
-export { default } from './Cache'
-export { default as stores } from './stores'
+import Cache from './Cache'
+import * as stores from './stores'
+
+export default Object.assign(Cache, stores)
