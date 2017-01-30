@@ -1,0 +1,13 @@
+{
+  "name": "rscache-request-example",
+  "description": "A request caching example for RSCache",
+  "scripts": {
+    "start": "node ."
+  },
+  "dependencies": {
+    "@risingstack/cache": "../../",
+    "node-object-hash": "1.1.5",
+    "request": "2.79.0",
+    "request-promise-native": "1.0.3"
+  }
+}
