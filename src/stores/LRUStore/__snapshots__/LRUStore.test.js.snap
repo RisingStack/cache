@@ -1,0 +1,21 @@
+exports[`LRUStore .clear() should clear the store 1`] = `Array []`;
+
+exports[`LRUStore .delete() should delete an item 1`] = `Array []`;
+
+exports[`LRUStore .get() should return a Promise 1`] = `
+Array [
+  Object {
+    "k": "existing",
+    "v": "{\"value\":{\"val\":1},\"options\":{}}",
+  },
+]
+`;
+
+exports[`LRUStore .set() should set a value with ttl options 1`] = `
+Array [
+  Object {
+    "k": "key",
+    "v": "{\"value\":{\"val\":1},\"options\":{\"stale\":5,\"expire\":10}}",
+  },
+]
+`;

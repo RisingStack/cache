@@ -2209,7 +2209,7 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0"
 
-lru-cache@^4.0.1:
+lru-cache@4.0.2, lru-cache@^4.0.1:
   version "4.0.2"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-4.0.2.tgz#1d17679c069cda5d040991a09dbc2c0db377e55e"
   dependencies:

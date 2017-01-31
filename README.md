@@ -76,6 +76,8 @@ npm start # run the example application
 
 #### Implementations
 
-- `new RSCache.MemoryStore()`
+- `new RSCache.LRUStore(options)` - uses LRU cache
+  - *options*: an Object of [lru-cache](https://www.npmjs.com/package/lru-cache) options
+- `new RSCache.MemoryStore()` - uses simple `Map`
 - `new RSCache.RedisStore(options)`
   - *options*: an Object of [ioredis](https://www.npmjs.com/package/ioredis) options

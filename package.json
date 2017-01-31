@@ -47,6 +47,7 @@
     "sinon": "1.17.7"
   },
   "dependencies": {
-    "ioredis": "2.5.0"
+    "ioredis": "2.5.0",
+    "lru-cache": "4.0.2"
   }
 }
