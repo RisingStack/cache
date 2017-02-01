@@ -1,7 +1,7 @@
 {
   "name": "@risingstack/cache",
   "version": "1.0.2",
-  "main": "index.js",
+  "main": "dist",
   "author": "RisingStack",
   "contributors": [
     "Andras Toth <andras.toth@risingstack.com> (http://andrastoth.com/)"
