@@ -12,15 +12,13 @@
     "lint": "eslint src",
     "check": "flow check",
     "test": "npm run lint && npm run check && npm run test-only",
-    "build": "rimraf dist; babel src --out-dir dist --ignore '**/*.test.*'"
+    "build": "rimraf dist; babel src --out-dir dist --ignore '**/*.test.*'",
+    "prepublish": "./scripts/prepublish.sh",
+    "postpublish": "./scripts/postpublish.sh"
   },
   "jest": {
     "testEnvironment": "node"
   },
-  "prepublish": [
-    "npm test",
-    "npm run build"
-  ],
   "pre-commit": [
     "test"
   ],
