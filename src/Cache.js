@@ -63,10 +63,8 @@ export default class Cache<K, V> extends EventEmitter {
         value = value.value
       }
 
-      process.nextTick(() => {
-        // $FlowFixMe: flow fails to recognize as correct param types
-        this.stores.forEach((store) => store.set(key, value, cacheOptions))
-      })
+      // $FlowFixMe: flow fails to recognize as correct param types
+      this.stores.forEach((store) => store.set(key, value, cacheOptions))
     }
 
     return value
