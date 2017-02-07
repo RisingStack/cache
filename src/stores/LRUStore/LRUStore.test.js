@@ -90,7 +90,7 @@ describe('LRUStore', () => {
 
   describe('.getStats()', () => {
     it('should return hit stats', async () => {
-      store.set('existing', { val: 1 })
+      store.set('existing', { val: 1 }, { expire: 10 })
 
       await store.get('notexisting')
       await store.get('notexisting')
@@ -108,7 +108,7 @@ describe('LRUStore', () => {
 
   describe('.resetStats()', () => {
     it('should reset the hit stats', async () => {
-      store.set('existing', { val: 1 })
+      store.set('existing', { val: 1 }, { expire: 10 })
 
       await store.get('notexisting')
       await store.get('notexisting')

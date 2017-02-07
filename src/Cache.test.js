@@ -56,7 +56,7 @@ describe('Cache', () => {
         hitCount: 0
       }])
 
-      stores[1].set('key', { val: 1 })
+      stores[1].set('key', { val: 1 }, { expire: 100 })
 
       await cache.get('key')
 
@@ -135,7 +135,7 @@ describe('Cache', () => {
       const item = { val: 1 }
       const wrappedFunction = jest.fn(() => Promise.resolve(item))
 
-      cache.set('key', item)
+      cache.set('key', item, { expire: 100, stale: 100 })
 
       const result = await cache.wrap('key', wrappedFunction)
       expect(result).toEqual(item)

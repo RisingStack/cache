@@ -2,7 +2,7 @@ exports[`MemoryStore .clear() should clear the store 1`] = `
 MemoryStore {
   "stats": Object {
     "getCount": 2,
-    "hitCount": 1,
+    "hitCount": 0,
   },
   "store": Array [],
 }
@@ -12,7 +12,7 @@ exports[`MemoryStore .delete() should delete an item 1`] = `
 MemoryStore {
   "stats": Object {
     "getCount": 2,
-    "hitCount": 1,
+    "hitCount": 0,
   },
   "store": Array [],
 }
@@ -22,7 +22,7 @@ exports[`MemoryStore .get() should return a Promise 1`] = `
 MemoryStore {
   "stats": Object {
     "getCount": 2,
-    "hitCount": 1,
+    "hitCount": 0,
   },
   "store": Array [
     Array [

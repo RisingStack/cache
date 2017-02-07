@@ -27,7 +27,7 @@ export default class MemoryStore<V> {
     const value = this.store.get(key)
 
     this.stats.getCount += 1
-    if (value) {
+    if (value && (!value.isExpired() || !value.isStale())) {
       this.stats.hitCount += 1
     }
 

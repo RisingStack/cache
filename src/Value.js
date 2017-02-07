@@ -29,7 +29,7 @@ export default class Value<V> {
 
   isExpired(): boolean {
     if (!this.expireAt) {
-      return false
+      return true
     }
 
     return this.expireAt.valueOf() < Date.now()
@@ -37,7 +37,7 @@ export default class Value<V> {
 
   isStale(): boolean {
     if (!this.staleAt) {
-      return false
+      return true
     }
 
     return this.staleAt.valueOf() < Date.now()

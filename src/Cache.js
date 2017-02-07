@@ -63,14 +63,16 @@ export default class Cache<K, V> extends EventEmitter {
         value = value.value
       }
 
-      // $FlowFixMe: flow fails to recognize as correct param types
-      this.stores.forEach((store) => store.set(key, value, cacheOptions))
+      if (cacheOptions && cacheOptions.expire > 0) {
+        // $FlowFixMe: flow fails to recognize as correct param types
+        this.stores.forEach((store) => store.set(key, value, cacheOptions))
+      }
     }
 
     return value
   }
 
-  async wrap(key: K, func: Function, options: TTLOptions): Promise<?V> {
+  async wrap(key: K, func: Function, options: TTLOptions = {}): Promise<?V> {
     const value = await this.get(key)
 
     // try to refresh if not in cache or the value is expired
