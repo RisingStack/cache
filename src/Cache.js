@@ -63,7 +63,7 @@ export default class Cache<K, V> extends EventEmitter {
         value = value.value
       }
 
-      if (cacheOptions && cacheOptions.expire > 0) {
+      if (cacheOptions && cacheOptions.expire !== 0) {
         // $FlowFixMe: flow fails to recognize as correct param types
         this.stores.forEach((store) => store.set(key, value, cacheOptions))
       }
@@ -76,13 +76,13 @@ export default class Cache<K, V> extends EventEmitter {
     const value = await this.get(key)
 
     // try to refresh if not in cache or the value is expired
-    if (!value || value.isExpired()) {
+    if (!value || value.isStale()) {
       try {
         const result = await this.refresh(key, func, options)
         return result
       } catch (ex) {
         // throw error if the value is outdated
-        if (!value || (value && value.isStale())) {
+        if (!value || (value && value.isExpired())) {
           throw ex
         }
         // ignore if stale

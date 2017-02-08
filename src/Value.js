@@ -18,11 +18,11 @@ export default class Value<V> {
     const { expire, stale } = options
     const now = Date.now()
 
-    if (Number.isInteger(expire)) {
+    if (Number.isInteger(expire) && expire !== 0) {
       this.expireAt = new Date(now + expire)
     }
 
-    if (Number.isInteger(stale)) {
+    if (Number.isInteger(stale) && stale !== 0) {
       this.staleAt = new Date(now + stale)
     }
   }

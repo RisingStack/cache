@@ -190,13 +190,13 @@ describe('Cache', () => {
       expect(cache).toMatchSnapshot()
     })
 
-    it('should return the value if it is expired but stale and the wrapped function fails', async () => {
+    it('should return the value if it is stale but not expired yet and the wrapped function fails', async () => {
       const item = { val: 1 }
       const wrappedFunction = jest.fn(() => Promise.reject(new Error('error')))
       cache.set('key', item)
       const value = await cache.get('key')
-      value.isExpired = () => true
-      value.isStale = () => false
+      value.isExpired = () => false
+      value.isStale = () => true
 
       expect(cache).toMatchSnapshot()
 

@@ -337,20 +337,30 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Array [
+        Array [
+          "key",
+          "{\"value\":{\"val\":1},\"options\":{}}",
+        ],
+      ],
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Array [
+        Array [
+          "key",
+          "{\"value\":{\"val\":1},\"options\":{}}",
+        ],
+      ],
     },
   ],
 }
 `;
 
-exports[`Cache .wrap should return the value if it is expired but stale and the wrapped function fails 1`] = `
+exports[`Cache .wrap should return the value if it is stale but not expired yet and the wrapped function fails 1`] = `
 Cache {
   "_events": Object {
     "error": [Function],
@@ -387,7 +397,7 @@ Cache {
 }
 `;
 
-exports[`Cache .wrap should return the value if it is expired but stale and the wrapped function fails 2`] = `
+exports[`Cache .wrap should return the value if it is stale but not expired yet and the wrapped function fails 2`] = `
 Cache {
   "_events": Object {
     "error": [Function],
