@@ -209,6 +209,26 @@ describe('Cache', () => {
       expect(cache).toMatchSnapshot()
     })
 
+    it('should throw an error if error has a noCache=true', async () => {
+      const item = { val: 1 }
+      const error = new Error('error')
+      error.noCache = true
+      const wrappedFunction = jest.fn(() => Promise.reject(error))
+      cache.set('key', item)
+      const value = await cache.get('key')
+      value.isExpired = () => false
+      value.isStale = () => true
+
+      let ex
+      try {
+        await cache.wrap('key', wrappedFunction)
+      } catch (err) {
+        ex = err
+      }
+
+      expect(ex).toMatchSnapshot()
+    })
+
     it('should throw an error if the item is not in cache and the wrapped function fails', async () => {
       const error = new Error('error')
       const wrappedFunction = jest.fn(() => Promise.reject(error))

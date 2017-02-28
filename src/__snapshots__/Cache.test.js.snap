@@ -434,6 +434,8 @@ Cache {
 }
 `;
 
+exports[`Cache .wrap should throw an error if error has a noCache=true 1`] = `[Error: error]`;
+
 exports[`Cache .wrap should throw an error if the item is not in cache and the wrapped function fails 1`] = `[Error: error]`;
 
 exports[`Cache .wrap should throw an error if the value in cache is expired and stale and the wrapped function fails 1`] = `[Error: error]`;
