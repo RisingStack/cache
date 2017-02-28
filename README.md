@@ -81,3 +81,14 @@ npm start # run the example application
 - `new RSCache.MemoryStore()` - uses simple `Map`
 - `new RSCache.RedisStore(options)`
   - *options*: an Object of [ioredis](https://www.npmjs.com/package/ioredis) options
+
+## Stale if error
+
+### No cache
+
+Skip cache, useful at 404 status code issue for example.
+
+```js
+const error = new Error('error')
+error.noCache = true
+```

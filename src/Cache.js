@@ -81,6 +81,11 @@ export default class Cache<K, V> extends EventEmitter {
         const result = await this.refresh(key, func, options)
         return result
       } catch (ex) {
+        // skip cache
+        if (ex.noCache) {
+          throw ex
+        }
+
         // throw error if the value is outdated
         if (!value || (value && value.isExpired())) {
           throw ex
