@@ -1,3 +1,13 @@
+<a name="1.3.1"></a>
+## 1.3.1 (2017-03-07)
+
+
+### fix
+
+* fix(babel): use es2015 preset 40d6d53
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-03-07)
 
@@ -6,6 +16,7 @@
 
 ### chore
 
+* chore(package): bump version to 1.3.0 0879f0c
 * chore(package): update dependencies 9e0c332
 
 
