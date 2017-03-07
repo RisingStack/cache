@@ -7,9 +7,14 @@ declare interface Store<K, V> {
   delete(key: K): Promise<*>;
   clear(): any;
   size(): Promise<number>;
+  registerErrorHandler?: (ErrorHandler) => void;
 
   getStats(): StoreStats;
   resetStats(): StoreStats;
+}
+
+declare interface ErrorHandler {
+  (message: string, context: { error: Error }): void;
 }
 
 declare type TTLOptions = {

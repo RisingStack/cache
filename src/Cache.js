@@ -2,11 +2,13 @@
 
 import EventEmitter from 'events'
 import Value from './Value'
+import { promiseTimeout, PromiseTimeoutError } from './util'
 
 export default class Cache<K, V> extends EventEmitter {
-  stores: Array<Store<K, V>>
+  stores: Array<Store<K, V>>;
+  options: CacheOptions;
 
-  constructor(stores: Array<Store<K, V>>) {
+  constructor(stores: Array<Store<K, V>>, options: CacheOptions = {}) {
     super()
 
     if (!Array.isArray(stores) || !stores.length) {
@@ -14,6 +16,14 @@ export default class Cache<K, V> extends EventEmitter {
     }
 
     this.stores = stores
+    this.options = options
+
+    // register store error handlers
+    this.stores.forEach((store) => {
+      if (typeof store.registerErrorHandler === 'function') {
+        store.registerErrorHandler((...args) => this.emitError(...args))
+      }
+    })
 
     // dummy error listener
     this.on('error', () => {})
@@ -24,11 +34,20 @@ export default class Cache<K, V> extends EventEmitter {
     for (const store of this.stores) {
       try {
         // eslint-disable-next-line no-await-in-loop
-        const value = await store.get(key)
+        const value = await (
+          typeof this.options.timeout === 'number' && this.options.timeout > 0
+            ? promiseTimeout(store.get(key), this.options.timeout)
+            : store.get(key)
+        )
         if (value) {
           return value
         }
       } catch (error) {
+        // Promise timeout
+        if (error instanceof PromiseTimeoutError && error.code === 'ETIMEDOUT') {
+          return undefined
+        }
+
         this.emitError('Failed to get an item from store', {
           key,
           error
@@ -119,3 +138,4 @@ export default class Cache<K, V> extends EventEmitter {
 }
 
 type wrappedValue<V> = { value: V, cacheOptions: TTLOptions }
+type CacheOptions = { timeout?: Number }
