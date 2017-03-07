@@ -1,6 +1,6 @@
 class PromiseTimeoutError extends Error {
-  constructor(...args) {
-    super(...args)
+  constructor(message) {
+    super(message)
     this.code = 'ETIMEDOUT'
   }
 }

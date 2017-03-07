@@ -1,4 +1,4 @@
-import { promiseTimeout } from './util'
+import { promiseTimeout, PromiseTimeoutError } from './util'
 
 describe('util: promiseTimeout', () => {
   let originalPromise
@@ -13,6 +13,7 @@ describe('util: promiseTimeout', () => {
     try {
       await promiseTimeout(originalPromise, 0)
     } catch (error) {
+      expect(error).toBeInstanceOf(PromiseTimeoutError)
       expect(error.code).toEqual('ETIMEDOUT')
       return
     }

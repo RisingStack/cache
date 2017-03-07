@@ -2,7 +2,7 @@
 
 import EventEmitter from 'events'
 import Value from './Value'
-import { promiseTimeout } from './util'
+import { promiseTimeout, PromiseTimeoutError } from './util'
 
 export default class Cache<K, V> extends EventEmitter {
   stores: Array<Store<K, V>>;
@@ -44,7 +44,7 @@ export default class Cache<K, V> extends EventEmitter {
         }
       } catch (error) {
         // Promise timeout
-        if (error.code === 'ETIMEDOUT') {
+        if (error instanceof PromiseTimeoutError && error.code === 'ETIMEDOUT') {
           return undefined
         }
 
