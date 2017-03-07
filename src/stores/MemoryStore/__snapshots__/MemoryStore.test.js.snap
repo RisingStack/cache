@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`MemoryStore .clear() should clear the store 1`] = `
 MemoryStore {
   "stats": Object {
@@ -27,7 +29,7 @@ MemoryStore {
   "store": Array [
     Array [
       "existing",
-      "{\"value\":{\"val\":1},\"options\":{}}",
+      "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
     ],
   ],
 }
@@ -42,7 +44,7 @@ MemoryStore {
   "store": Array [
     Array [
       "key",
-      "{\"value\":{\"val\":1},\"options\":{\"stale\":5,\"expire\":10}}",
+      "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"stale\\":5,\\"expire\\":10}}",
     ],
   ],
 }
