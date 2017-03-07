@@ -35,6 +35,29 @@ describe('Cache', () => {
       expect(cache).toMatchSnapshot()
     })
 
+    it('should not return a value if timeouts', async () => {
+      const GET_TIMEOUT = 5
+      const GET_DELAY = 10
+
+      cache = new Cache([stores[0]], {
+        timeout: GET_TIMEOUT
+      })
+
+      const val = { val: 1 }
+      cache.set('key', val)
+
+      stores[0].get = () => new Promise((resolve) => {
+        setTimeout(() => resolve(val), GET_DELAY)
+      })
+
+      const valuePromise = cache.get('key')
+      jest.runTimersToTime(GET_DELAY)
+      const value = await valuePromise
+
+      expect(value).toBeUndefined()
+      expect(cache).toMatchSnapshot()
+    })
+
     it('should check for the value in every store', async () => {
       expect(cache).toMatchSnapshot()
       expect(stores.map((store) => store.getStats())).toEqual([{
@@ -82,6 +105,32 @@ describe('Cache', () => {
         key,
         error
       })
+    })
+
+    it('should emit an error when a store has an error', async () => {
+      class MemoryStoreWithErrorHandler extends MemoryStore {
+        constructor(...args) {
+          super(...args)
+
+          this.errorHandlers = new Set()
+        }
+
+        registerErrorHandler(errorHandler) {
+          this.errorHandlers.add(errorHandler)
+        }
+
+        emitError(message, context) {
+          this.errorHandlers.forEach((errorHandler) => errorHandler(message, context))
+        }
+      }
+
+      const memoryStore = new MemoryStoreWithErrorHandler()
+      cache = new Cache([memoryStore])
+      cache.emit = jest.fn()
+
+      const error = new Error('Such Error')
+      memoryStore.emitError(error.message, { error: Error })
+      expect(cache.emit).toHaveBeenCalledWith('error', error.message, { error: Error })
     })
   })
 

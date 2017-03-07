@@ -3,9 +3,14 @@
 import Redis from 'ioredis'
 import Value from '../../Value'
 
+interface ErrorHandler {
+  (message: string, context: { error: Error }): void;
+}
+
 export default class RedisStore<V> {
   client: Object;
   stats: StoreStats;
+  errorHandlers: Set<ErrorHandler>;
 
   constructor(options: Object | string) {
     this.client = new Redis(options)
@@ -13,6 +18,15 @@ export default class RedisStore<V> {
       getCount: 0,
       hitCount: 0
     }
+    this.errorHandlers = new Set()
+
+    this.client.on('error', (error) =>
+      this.emitError('Redis store', { error })
+    )
+  }
+
+  registerErrorHandler(errorHandler: ErrorHandler) {
+    this.errorHandlers.add(errorHandler)
   }
 
   async get(key: string): Promise<?Value<V>> {
@@ -63,5 +77,9 @@ export default class RedisStore<V> {
     }
 
     return this.getStats()
+  }
+
+  emitError(message: string, context: { error: Error }) {
+    this.errorHandlers.forEach((errorHandler) => errorHandler(message, context))
   }
 }

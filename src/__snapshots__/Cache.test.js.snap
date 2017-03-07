@@ -6,6 +6,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -33,6 +34,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -60,6 +62,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -84,6 +87,35 @@ Cache {
 }
 `;
 
+exports[`Cache .get() should not return a value if timeouts 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {
+    "timeout": 5,
+  },
+  "stores": Array [
+    MemoryStore {
+      "get": [Function],
+      "stats": Object {
+        "getCount": 0,
+        "hitCount": 0,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\"value\":{\"val\":1},\"options\":{}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Cache .get() should return a Promise<Value> 1`] = `
 Cache {
   "_events": Object {
@@ -92,6 +124,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -129,6 +162,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -166,6 +200,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -203,6 +238,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -240,6 +276,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -267,6 +304,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -304,6 +342,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -331,6 +370,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -368,6 +408,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {
@@ -405,6 +446,7 @@ Cache {
   "_eventsCount": 1,
   "_maxListeners": undefined,
   "domain": null,
+  "options": Object {},
   "stores": Array [
     MemoryStore {
       "stats": Object {

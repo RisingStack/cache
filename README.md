@@ -24,7 +24,9 @@ const RSCache = require('@risingstack/cache')
 
 const memoryStore = new RSCache.MemoryStore()
 const redisStore = new RSCache.RedisStore(/* ioredis options */)
-const cache = new RSCache([memoryStore, redisStore])
+const cache = new RSCache([memoryStore, redisStore], {
+  timeout: 200
+})
 ```
 
 ## Examples
@@ -41,7 +43,10 @@ npm start # run the example application
 
 ### RSCache
 
-`new RSCache([store, ...])` - store order specifies `get` precedency, which means that the cache will try to get the value from stores with lower indexes first
+`new RSCache([store, ...], options)` - store order specifies `get` precedency, which means that the cache will try to get the value from stores with lower indexes first
+
+- `options`: optional
+  - `timeout`: optional, Number in milliseconds, maximum time that cache waits for get
 
 - `get(key)`: get the value for the key or `undefined` if not found
 - `set(key, value, options)`: sets the value

@@ -139,4 +139,19 @@ describe('RedisStore', () => {
       })
     })
   })
+
+  describe('error handler', () => {
+    it('should call registered handlers', async () => {
+      const errorHandler1 = jest.fn()
+      const errorHandler2 = jest.fn()
+      const error = new Error('My Error')
+
+      store.registerErrorHandler(errorHandler1)
+      store.registerErrorHandler(errorHandler2)
+      store.client.emit('error', error)
+
+      expect(errorHandler1).toHaveBeenCalledWith('Redis store', { error })
+      expect(errorHandler2).toHaveBeenCalledWith('Redis store', { error })
+    })
+  })
 })
