@@ -1,3 +1,27 @@
+<a name="1.3.2"></a>
+## 1.3.2 (2017-03-07)
+
+
+### fix
+
+* fix(babel): revert babel preset change, remove spread in super instead (the cause is still unknown) 8e38576
+
+
+
+<a name="1.3.1"></a>
+## 1.3.1 (2017-03-07)
+
+
+### chore
+
+* chore(package): bump version to 1.3.1 f76533b
+
+### fix
+
+* fix(babel): use es2015 preset 40d6d53
+
+
+
 <a name="1.3.0"></a>
 # 1.3.0 (2017-03-07)
 
@@ -6,6 +30,7 @@
 
 ### chore
 
+* chore(package): bump version to 1.3.0 0879f0c
 * chore(package): update dependencies 9e0c332
 
 
