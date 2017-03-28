@@ -77,8 +77,9 @@ export default class Cache<K, V> extends EventEmitter {
     let cacheOptions = options
 
     if (value) {
-      if (value.value && value.cacheOptions) {
+      if (Object.prototype.hasOwnProperty.call(value, 'value') && value.cacheOptions) {
         cacheOptions = value.cacheOptions
+        // $FlowFixMe: flow fails to recognize hasOwnProperty checks (https://github.com/facebook/flow/issues/2008)
         value = value.value
       }
 
@@ -88,6 +89,7 @@ export default class Cache<K, V> extends EventEmitter {
       }
     }
 
+    // $FlowFixMe: flow fails to recognize hasOwnProperty checks (https://github.com/facebook/flow/issues/2008)
     return value
   }
 

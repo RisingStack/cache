@@ -270,6 +270,82 @@ Cache {
 }
 `;
 
+exports[`Cache .wrap should refresh the value if it is expired in the cache (with cacheOptions) 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 0,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+        ],
+      ],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 0,
+        "hitCount": 0,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Cache .wrap should refresh the value if it is expired in the cache (with cacheOptions) 2`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 2,
+        "hitCount": 0,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":null,\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+        ],
+      ],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 0,
+        "hitCount": 0,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":null,\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
 exports[`Cache .wrap should refresh the value if it is not in the cache (with cacheOptions) 1`] = `
 Cache {
   "_events": Object {

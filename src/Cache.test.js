@@ -221,6 +221,26 @@ describe('Cache', () => {
       expect(cache).toMatchSnapshot()
     })
 
+    it('should refresh the value if it is expired in the cache (with cacheOptions)', async () => {
+      const item = { val: 1 }
+      const wrappedFunction = jest.fn(() => Promise.resolve({
+        value: null, cacheOptions: { expire: 10, stale: 5 } }
+      ))
+      cache.set('key', item)
+      const value = await cache.get('key')
+      value.isExpired = () => true
+
+      expect(cache).toMatchSnapshot()
+
+      const result = await cache.wrap('key', wrappedFunction)
+      expect(result).toEqual(null)
+      expect(wrappedFunction).toHaveBeenCalled()
+
+      jest.runAllTicks()
+
+      expect(cache).toMatchSnapshot()
+    })
+
     it('should refresh the value if it is expired', async () => {
       const item = { val: 1 }
       const wrappedFunction = jest.fn(() => Promise.resolve(item))
