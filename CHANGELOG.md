@@ -1,6 +1,24 @@
+<a name="1.3.3"></a>
+## 1.3.3 (2017-03-28)
+
+
+### chore
+
+* chore(package): update dependencies 80e3646
+
+### fix
+
+* fix(cache): allow falsy values to be set b8065ff
+
+
+
 <a name="1.3.2"></a>
 ## 1.3.2 (2017-03-07)
 
+
+### chore
+
+* chore(package): bump version to 1.3.2 651cd91
 
 ### fix
 
