@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
   // set the max age to 2 seconds and stale if error to 5 seconds
   res.writeHead(200, {
     'Content-Type': 'application/json',
-    'Cache-control': 'max-age=2;stale-if-error=5;'
+    'Cache-control': 'max-age=2, stale-if-error=5'
   })
   res.write(JSON.stringify({ key: Math.floor(Math.random() * 100) }))
   res.end()
@@ -57,26 +57,30 @@ server.listen(SERVER_PORT, (err) => {
       .then((response) => {
         // parse the cache headers
         const cacheHeader = response.headers['cache-control']
-          .split(';')
+          .split(',')
           .filter(Boolean) // empty string is falsy
+          .map((s) => s.trim())
           .reduce((cacheOptions, keyVal) => {
             const [key, val] = keyVal.split('=')
             return Object.assign(cacheOptions, { [key]: val })
           }, {})
 
-        const maxAge = Number(cacheHeader['max-age']) || 0
-        const staleIfError = Number(cacheHeader['stale-if-error']) || 0
+        const maxAge = Number(cacheHeader['max-age'])
+        const staleIfError = Number(cacheHeader['stale-if-error'])
 
         // overried the default ttl options
         let cacheOptions
-        if (maxAge || staleIfError) {
-          // now < stale < expire
+        if (typeof maxAge === 'number' || typeof staleIfError === 'number') {
+          const stale = !Number.isNaN(maxAge) ? maxAge * 1000 : undefined
+          const expire = !Number.isNaN(staleIfError) ? staleIfError * 1000 : stale
+
+            // now < stale < expire
           cacheOptions = {
             // until the max age time the value is up to date
-            stale: staleIfError ? maxAge * 1000 : undefined,
+            stale,
             // try to refresh the value when it's stale but not yet expired
             // on error we can still use the stored value
-            expire: staleIfError ? staleIfError * 1000 : maxAge * 1000
+            expire
           }
         }
 
