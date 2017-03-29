@@ -156,7 +156,7 @@ Cache {
 }
 `;
 
-exports[`Cache .refresh() should refresh the cache with the returned value 1`] = `
+exports[`Cache .refresh() with object input { cacheOptions, value } should refresh the cache with cache options 1`] = `
 Cache {
   "_events": Object {
     "error": [Function],
@@ -174,7 +174,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":1}}",
         ],
       ],
     },
@@ -186,7 +186,45 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":1}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Cache .refresh() with raw value input should refresh the cache with the returned value 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+        ],
+      ],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
         ],
       ],
     },
