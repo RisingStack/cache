@@ -22,6 +22,10 @@ describe('Cache', () => {
     jest.useFakeTimers()
   })
 
+  afterEach(() => {
+    cache.clear()
+  })
+
   it('should throw an error if constructed with no stores', () => {
     const error = new TypeError('`stores` must be an Array with at least one Store')
     expect(() => new Cache()).toThrowError(error)
@@ -187,6 +191,45 @@ describe('Cache', () => {
 
         expect(cache).toMatchSnapshot()
       })
+
+      it('should use stale as expire if undefined', async () => {
+        const value = { foo: 'bar' }
+        const options = { stale: 5 }
+        const wrappedFunction = jest.fn(() => Promise.resolve(value))
+
+        const result = await cache.refresh('key', wrappedFunction, options)
+        expect(result).toEqual(value)
+        jest.runAllTicks()
+
+        const values = await Promise.all(stores.map((store) => store.get('key')))
+        const finalOptions = { expire: 5, stale: 5 }
+        expect(values[0]).toMatchObject({ options: finalOptions, value })
+        expect(values[1]).toMatchObject({ options: finalOptions, value })
+
+        expect(cache).toMatchSnapshot()
+      })
+
+      it('should emit error with invalid cache options', async () => {
+        const key = 'key'
+        const value = { foo: 'bar' }
+        const options = {}
+        const wrappedFunction = jest.fn(() => Promise.resolve(value))
+        cache.emit = jest.fn()
+
+        const error = new Error('Expire is missing')
+
+        await cache.refresh(key, wrappedFunction, options)
+        jest.runAllTicks()
+
+        expect(cache.emit).toHaveBeenCalledWith('error', 'Invalid cache options at refresh', {
+          key,
+          error,
+          value,
+          cacheOptions: options
+        })
+
+        expect(cache).toMatchSnapshot()
+      })
     })
 
     describe('with object input { cacheOptions, value }', () => {
@@ -220,6 +263,46 @@ describe('Cache', () => {
       const result = await cache.wrap('key', wrappedFunction)
       expect(result).toEqual(item)
       expect(wrappedFunction).not.toHaveBeenCalled()
+    })
+
+    it('should return the value if it was cached', async () => {
+      const value = { foo: 'bar' }
+      const wrappedFunction = jest.fn()
+        .mockImplementationOnce(() => Promise.resolve({ value, cacheOptions: { stale: 10, expire: 100 } }))
+
+      const result1 = await cache.wrap('key', wrappedFunction)
+      const result2 = await cache.wrap('key', wrappedFunction)
+      expect(result1).toEqual(value)
+      expect(result2).toEqual(value)
+      // second call comes from stale cache
+      expect(wrappedFunction).toHaveBeenCalledTimes(1)
+    })
+
+    it('should return the value if it is expire only but fn fails', async () => {
+      const value = { foo: 'bar' }
+      const wrappedFunction = jest.fn()
+        .mockImplementationOnce(() => Promise.resolve({ value, cacheOptions: { expire: 100 } }))
+        .mockImplementationOnce(() => Promise.reject(new Error('My Error')))
+
+      const result1 = await cache.wrap('key', wrappedFunction)
+      const result2 = await cache.wrap('key', wrappedFunction)
+      expect(result1).toEqual(value)
+      expect(result2).toEqual(value)
+      expect(wrappedFunction).toHaveBeenCalledTimes(2)
+    })
+
+    it('should refresh the value if it is expire only and provide the latest', async () => {
+      const value1 = { foo: 'bar1' }
+      const value2 = { foo: 'bar2' }
+      const wrappedFunction = jest.fn()
+        .mockImplementationOnce(() => Promise.resolve({ value: value1, cacheOptions: { expire: 100 } }))
+        .mockImplementationOnce(() => Promise.resolve({ value: value2, cacheOptions: { expire: 100 } }))
+
+      const result1 = await cache.wrap('key', wrappedFunction)
+      const result2 = await cache.wrap('key', wrappedFunction)
+      expect(result1).toEqual(value1)
+      expect(result2).toEqual(value2)
+      expect(wrappedFunction).toHaveBeenCalledTimes(2)
     })
 
     it('should refresh the value if it is not in the cache', async () => {
