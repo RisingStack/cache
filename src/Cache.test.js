@@ -209,24 +209,41 @@ describe('Cache', () => {
         expect(cache).toMatchSnapshot()
       })
 
-      it('should emit error with invalid cache options', async () => {
-        const key = 'key'
+      it('should skip cache with undefined stale and expire', async () => {
         const value = { foo: 'bar' }
         const options = {}
         const wrappedFunction = jest.fn(() => Promise.resolve(value))
-        cache.emit = jest.fn()
 
-        const error = new Error('Expire is missing')
-
-        await cache.refresh(key, wrappedFunction, options)
+        const result = await cache.refresh('key', wrappedFunction, options)
+        expect(result).toEqual(value)
         jest.runAllTicks()
 
-        expect(cache.emit).toHaveBeenCalledWith('error', 'Invalid cache options at refresh', {
-          key,
-          error,
-          value,
-          cacheOptions: options
-        })
+        const values = await Promise.all(stores.map((store) => store.get('key')))
+        expect(values[0]).toBeUndefined()
+        expect(values[1]).toBeUndefined()
+
+        expect(cache).toMatchSnapshot()
+      })
+
+      it('should set cache to zero with 0 expire', async () => {
+        const value = { foo: 'bar' }
+        const wrappedFunction = jest.fn(() => Promise.resolve(value))
+
+        let result = await cache.refresh('key', wrappedFunction, { expire: 100 })
+        jest.runAllTicks()
+        expect(result).toEqual(value)
+
+        let values = await Promise.all(stores.map((store) => store.get('key')))
+        expect(values[0]).toMatchObject({ options: { expire: 100 }, value })
+        expect(values[1]).toMatchObject({ options: { expire: 100 }, value })
+
+        result = await cache.refresh('key', wrappedFunction, { expire: 0 })
+        jest.runAllTicks()
+        expect(result).toEqual(value)
+
+        values = await Promise.all(stores.map((store) => store.get('key')))
+        expect(values[0]).toMatchObject({ options: { expire: 0 }, value })
+        expect(values[1]).toMatchObject({ options: { expire: 0 }, value })
 
         expect(cache).toMatchSnapshot()
       })

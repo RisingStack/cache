@@ -194,35 +194,6 @@ Cache {
 }
 `;
 
-exports[`Cache .refresh() with raw value input should emit error with invalid cache options 1`] = `
-Cache {
-  "_events": Object {
-    "error": [Function],
-  },
-  "_eventsCount": 1,
-  "_maxListeners": undefined,
-  "domain": null,
-  "emit": [Function],
-  "options": Object {},
-  "stores": Array [
-    MemoryStore {
-      "stats": Object {
-        "getCount": 0,
-        "hitCount": 0,
-      },
-      "store": Array [],
-    },
-    MemoryStore {
-      "stats": Object {
-        "getCount": 0,
-        "hitCount": 0,
-      },
-      "store": Array [],
-    },
-  ],
-}
-`;
-
 exports[`Cache .refresh() with raw value input should refresh the cache with the returned value 1`] = `
 Cache {
   "_events": Object {
@@ -256,6 +227,72 @@ Cache {
           "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
+    },
+  ],
+}
+`;
+
+exports[`Cache .refresh() with raw value input should set cache to zero with 0 expire 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 2,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
+        ],
+      ],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 2,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Cache .refresh() with raw value input should skip cache with undefined stale and expire 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 0,
+      },
+      "store": Array [],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 0,
+      },
+      "store": Array [],
     },
   ],
 }
