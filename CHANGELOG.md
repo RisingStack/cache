@@ -1,9 +1,26 @@
+<a name="1.3.4"></a>
+## 1.3.4 (2017-03-29)
+
+
+### feat
+
+* feat(example): fix example 2ba3b55
+
+### fix
+
+* fix(cache): do not save without expire in refresh df6265d
+* fix(cache): use createdAt 4013913
+* fix(refresh): cache options merge d1e4e07
+
+
+
 <a name="1.3.3"></a>
 ## 1.3.3 (2017-03-28)
 
 
 ### chore
 
+* chore(package): bump version to 1.3.3 ff2be34
 * chore(package): update dependencies 80e3646
 
 ### fix
