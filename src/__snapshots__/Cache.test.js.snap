@@ -81,7 +81,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"expire\\":100}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":100}}",
         ],
       ],
     },
@@ -110,7 +110,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -136,7 +136,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -148,7 +148,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -174,7 +174,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":1}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
         ],
       ],
     },
@@ -186,7 +186,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":1}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
         ],
       ],
     },
@@ -212,7 +212,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -224,7 +224,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -250,7 +250,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -262,7 +262,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -288,7 +288,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -300,7 +300,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -326,7 +326,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -338,7 +338,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -364,7 +364,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":null,\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -376,7 +376,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":null,\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -430,7 +430,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -442,7 +442,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"expire\\":10,\\"stale\\":5}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
         ],
       ],
     },
@@ -496,7 +496,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -508,7 +508,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -534,7 +534,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -546,7 +546,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -572,7 +572,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },
@@ -584,7 +584,7 @@ Cache {
       "store": Array [
         Array [
           "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
         ],
       ],
     },

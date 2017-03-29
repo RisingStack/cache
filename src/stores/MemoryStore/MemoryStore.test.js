@@ -1,8 +1,17 @@
+import MockDate from 'mockdate'
 import MemoryStore from './MemoryStore'
 import Value from '../../Value'
 
 describe('MemoryStore', () => {
   let store
+
+  beforeAll(() => {
+    MockDate.set('2000-01-01T00:00:00Z')
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
 
   beforeEach(() => {
     store = new MemoryStore()

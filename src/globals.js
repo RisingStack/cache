@@ -20,6 +20,7 @@ declare interface ErrorHandler {
 declare type TTLOptions = {
   stale?: number;
   expire?: number;
+  createdAt?: number;
 }
 
 declare type StoreStats = {

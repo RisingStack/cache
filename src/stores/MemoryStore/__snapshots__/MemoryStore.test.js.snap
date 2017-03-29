@@ -29,7 +29,7 @@ MemoryStore {
   "store": Array [
     Array [
       "existing",
-      "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+      "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
     ],
   ],
 }
@@ -44,7 +44,7 @@ MemoryStore {
   "store": Array [
     Array [
       "key",
-      "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"stale\\":5,\\"expire\\":10}}",
+      "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
     ],
   ],
 }

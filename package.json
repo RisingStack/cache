@@ -40,6 +40,7 @@
     "eslint-plugin-react": "6.10.3",
     "flow-bin": "0.42.0",
     "jest": "19.0.2",
+    "mockdate": "2.0.1",
     "pre-commit": "1.2.2",
     "rimraf": "2.6.1",
     "sinon": "2.1.0"
