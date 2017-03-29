@@ -1,6 +1,20 @@
+<a name="1.3.5"></a>
+## 1.3.5 (2017-03-29)
+
+
+### feat
+
+* feat(cache): allow zero expire, document (#12) 57c02fa
+
+
+
 <a name="1.3.4"></a>
 ## 1.3.4 (2017-03-29)
 
+
+### chore
+
+* chore(package): bump version to 1.3.4 caf5758
 
 ### feat
 
