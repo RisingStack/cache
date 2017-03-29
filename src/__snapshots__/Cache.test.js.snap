@@ -194,6 +194,35 @@ Cache {
 }
 `;
 
+exports[`Cache .refresh() with raw value input should emit error with invalid cache options 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "emit": [Function],
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 0,
+        "hitCount": 0,
+      },
+      "store": Array [],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 0,
+        "hitCount": 0,
+      },
+      "store": Array [],
+    },
+  ],
+}
+`;
+
 exports[`Cache .refresh() with raw value input should refresh the cache with the returned value 1`] = `
 Cache {
   "_events": Object {
@@ -225,6 +254,44 @@ Cache {
         Array [
           "key",
           "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+        ],
+      ],
+    },
+  ],
+}
+`;
+
+exports[`Cache .refresh() with raw value input should use stale as expire if undefined 1`] = `
+Cache {
+  "_events": Object {
+    "error": [Function],
+  },
+  "_eventsCount": 1,
+  "_maxListeners": undefined,
+  "domain": null,
+  "options": Object {},
+  "stores": Array [
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
+        ],
+      ],
+    },
+    MemoryStore {
+      "stats": Object {
+        "getCount": 1,
+        "hitCount": 1,
+      },
+      "store": Array [
+        Array [
+          "key",
+          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
         ],
       ],
     },
@@ -493,24 +560,14 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Array [],
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Array [],
     },
   ],
 }
