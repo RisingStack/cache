@@ -29,6 +29,47 @@ const cache = new RSCache([memoryStore, redisStore], {
 })
 ```
 
+**Wrap:**
+
+Wrap Promise into cache.
+
+```js
+cache.wrap('key', () => Promise.resolve({
+  value: { foo: 'bar' },
+  cacheOptions: {
+    stale: 50,   // stale is optional: refresh after stale
+    expire: 100  // expire is required: only used when fn fails (0 removed from cache, undefined skips cache)
+  }
+}))
+.then((value) => {
+  console.log(value) // { foo: 'bar' }
+})
+```
+
+or with global cache options, just:
+
+```js
+cache.wrap('key', () => Promise.resolve({ foo: 'bar' }))
+.then((value) => {
+  console.log(value) // { foo: 'bar' }
+}, {
+  stale: 50,
+  expire: 100
+})
+```
+
+or with both. With both local and global cache options, the two objects are merged and local has higher priority.
+
+**stale:** optional: refresh after stale, time until value can be used from cache
+**expire:** required: time until value can be used from cache if fn fails
+
+`0 <= stale < expire`
+
+*Some examples:*
+
+- `{ expire: 24 * 60 * 1000 }`: use cache only at error
+- `{ expire: 24 * 60 * 1000, stale: 60 * 1000 }`: use from cache until stale, use until expire at error
+
 ## Examples
 
 Check out the [/examples](https://github.com/RisingStack/cache/tree/master/examples) folder.

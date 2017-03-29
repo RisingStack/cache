@@ -85,23 +85,15 @@ export default class Cache<K, V> extends EventEmitter {
 
       // use stale as expire if undefined, and vica versa
       cacheOptions = Object.assign({}, cacheOptions, {
-        expire: cacheOptions.expire || cacheOptions.stale || 0
+        expire: typeof cacheOptions.expire !== 'number' && typeof cacheOptions.stale === 'number' ?
+          cacheOptions.stale : cacheOptions.expire
       })
 
       // do not save with zero expire
       // expire only means: failover cache only
-      if (cacheOptions.expire > 0) {
+      if (typeof cacheOptions.expire === 'number') {
         // $FlowFixMe: flow fails to recognize hasOwnProperty checks (https://github.com/facebook/flow/issues/2008)
         this.set(key, value, cacheOptions)
-      } else {
-        const error = new Error('Expire is missing')
-
-        this.emitError('Invalid cache options at refresh', {
-          key,
-          value,
-          error,
-          cacheOptions: options
-        })
       }
     }
 
