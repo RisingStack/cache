@@ -162,20 +162,42 @@ describe('Cache', () => {
   })
 
   describe('.refresh()', () => {
-    it('should refresh the cache with the returned value', async () => {
-      const item = { val: 1 }
-      const options = { expire: 10, stale: 5 }
-      const wrappedFunction = jest.fn(() => Promise.resolve(item))
+    describe('with raw value input', () => {
+      it('should refresh the cache with the returned value', async () => {
+        const value = { foo: 'bar' }
+        const options = { expire: 10, stale: 5 }
+        const wrappedFunction = jest.fn(() => Promise.resolve(value))
 
-      const result = await cache.refresh('key', wrappedFunction, options)
-      expect(result).toEqual(item)
-      jest.runAllTicks()
+        const result = await cache.refresh('key', wrappedFunction, options)
+        expect(result).toEqual(value)
+        jest.runAllTicks()
 
-      const values = await Promise.all(stores.map((store) => store.get('key')))
-      expect(values[0]).toMatchObject({ options, value: item })
-      expect(values[1]).toMatchObject({ options, value: item })
+        const values = await Promise.all(stores.map((store) => store.get('key')))
+        expect(values[0]).toMatchObject({ options, value })
+        expect(values[1]).toMatchObject({ options, value })
 
-      expect(cache).toMatchSnapshot()
+        expect(cache).toMatchSnapshot()
+      })
+    })
+
+    describe('with object input { cacheOptions, value }', () => {
+      it('should refresh the cache with cache options', async () => {
+        const value = { foo: 'bar' }
+        const item = { value, cacheOptions: { stale: 1 } }
+        const options = { expire: 10, stale: 5 }
+        const wrappedFunction = jest.fn(() => Promise.resolve(item))
+
+        const result = await cache.refresh('key', wrappedFunction, options)
+        expect(result).toEqual(value)
+        jest.runAllTicks()
+
+        const values = await Promise.all(stores.map((store) => store.get('key')))
+        const mergedOptions = { expire: 10, stale: 1 }
+        expect(values[0]).toMatchObject({ options: mergedOptions, value })
+        expect(values[1]).toMatchObject({ options: mergedOptions, value })
+
+        expect(cache).toMatchSnapshot()
+      })
     })
   })
 
