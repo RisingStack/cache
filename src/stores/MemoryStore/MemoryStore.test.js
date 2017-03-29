@@ -19,7 +19,6 @@ describe('MemoryStore', () => {
       value = await store.get('existing')
       expect(value).toBeInstanceOf(Value)
       expect(value).toMatchObject({ value: item })
-      expect(store).toMatchSnapshot()
     })
   })
 
@@ -34,7 +33,6 @@ describe('MemoryStore', () => {
         options,
         value: item
       })
-      expect(store).toMatchSnapshot()
     })
   })
 
@@ -50,7 +48,6 @@ describe('MemoryStore', () => {
 
       value = await store.get('key')
       expect(value).toBeUndefined()
-      expect(store).toMatchSnapshot()
     })
   })
 
@@ -66,7 +63,6 @@ describe('MemoryStore', () => {
 
       value = await store.get('key')
       expect(value).toBeUndefined()
-      expect(store).toMatchSnapshot()
     })
   })
 

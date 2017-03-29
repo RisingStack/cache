@@ -17,7 +17,7 @@ exports[`LRUStore .set() should set a value with ttl options 1`] = `
 Array [
   Object {
     "k": "key",
-    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"stale\\":5,\\"expire\\":10}}",
+    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":1490774587983,\\"stale\\":5,\\"expire\\":10}}",
   },
 ]
 `;

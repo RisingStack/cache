@@ -59,7 +59,6 @@ describe('Cache', () => {
     })
 
     it('should check for the value in every store', async () => {
-      expect(cache).toMatchSnapshot()
       expect(stores.map((store) => store.getStats())).toEqual([{
         getCount: 0,
         hitCount: 0
@@ -70,7 +69,6 @@ describe('Cache', () => {
 
       await cache.get('key')
 
-      expect(cache).toMatchSnapshot()
       expect(stores.map((store) => store.getStats())).toEqual([{
         getCount: 1,
         hitCount: 0
@@ -83,7 +81,6 @@ describe('Cache', () => {
 
       await cache.get('key')
 
-      expect(cache).toMatchSnapshot()
       expect(stores.map((store) => store.getStats())).toEqual([{
         getCount: 2,
         hitCount: 0
@@ -164,7 +161,7 @@ describe('Cache', () => {
   describe('.refresh()', () => {
     it('should refresh the cache with the returned value', async () => {
       const item = { val: 1 }
-      const options = { expire: 10, stale: 5 }
+      const options = { expire: 10, stale: 5, createdAt: 1490774587983 }
       const wrappedFunction = jest.fn(() => Promise.resolve(item))
 
       const result = await cache.refresh('key', wrappedFunction, options)
@@ -208,7 +205,9 @@ describe('Cache', () => {
 
     it('should refresh the value if it is not in the cache (with cacheOptions)', async () => {
       const item = { val: 1 }
-      const wrappedFunction = jest.fn(() => Promise.resolve({ value: item, cacheOptions: { expire: 10, stale: 5 } }))
+      const wrappedFunction = jest.fn(() => Promise.resolve({
+        value: item, cacheOptions: { expire: 10, stale: 5, createdAt: 1490774587983 }
+      }))
 
       expect(cache).toMatchSnapshot()
 
@@ -224,7 +223,7 @@ describe('Cache', () => {
     it('should refresh the value if it is expired in the cache (with cacheOptions)', async () => {
       const item = { val: 1 }
       const wrappedFunction = jest.fn(() => Promise.resolve({
-        value: null, cacheOptions: { expire: 10, stale: 5 } }
+        value: null, cacheOptions: { expire: 10, stale: 5, createdAt: 1490774587983 } }
       ))
       cache.set('key', item)
       const value = await cache.get('key')

@@ -26,7 +26,7 @@ describe('LRUStore', () => {
   describe('.set()', () => {
     it('should set a value with ttl options', async () => {
       const item = { val: 1 }
-      const options = { stale: 5, expire: 10 }
+      const options = { stale: 5, expire: 10, createdAt: 1490774587983 }
       store.set('key', item, options)
 
       const value = await store.get('key')
