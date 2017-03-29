@@ -8,7 +8,7 @@ exports[`LRUStore .get() should return a Promise 1`] = `
 Array [
   Object {
     "k": "existing",
-    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{}}",
+    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
   },
 ]
 `;
@@ -17,7 +17,7 @@ exports[`LRUStore .set() should set a value with ttl options 1`] = `
 Array [
   Object {
     "k": "key",
-    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"stale\\":5,\\"expire\\":10}}",
+    "v": "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
   },
 ]
 `;

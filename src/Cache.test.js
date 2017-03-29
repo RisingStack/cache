@@ -1,3 +1,4 @@
+import MockDate from 'mockdate'
 import Cache from './Cache'
 import Value from './Value'
 import MemoryStore from './stores/MemoryStore'
@@ -5,6 +6,14 @@ import MemoryStore from './stores/MemoryStore'
 describe('Cache', () => {
   let stores
   let cache
+
+  beforeAll(() => {
+    MockDate.set('2000-01-01T00:00:00Z')
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
 
   beforeEach(() => {
     stores = [new MemoryStore(), new MemoryStore()]

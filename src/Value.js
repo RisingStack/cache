@@ -9,21 +9,20 @@ export default class Value<V> {
 
   constructor(value: V, options: TTLOptions = {}) {
     this.value = value
-    this.createdAt = new Date()
     this.refresh(options)
   }
 
   refresh(options: TTLOptions = {}) {
     this.options = options
-    const { expire, stale } = options
-    const now = Date.now()
+    const { expire, stale, createdAt = Date.now() } = options
+    this.createdAt = new Date(createdAt)
 
     if (Number.isInteger(expire) && expire !== 0) {
-      this.expireAt = new Date(now + expire)
+      this.expireAt = new Date(createdAt + expire)
     }
 
     if (Number.isInteger(stale) && stale !== 0) {
-      this.staleAt = new Date(now + stale)
+      this.staleAt = new Date(createdAt + stale)
     }
   }
 
@@ -46,13 +45,21 @@ export default class Value<V> {
   toJSON(): string {
     return JSON.stringify({
       value: this.value,
-      options: this.options
+      options: Object.assign({
+        createdAt: this.createdAt.valueOf(),
+        stale: undefined,
+        expire: undefined
+      }, this.options)
     })
   }
 
   static fromJSON(json: string): ?Value<V> {
     try {
       const { value, options } = JSON.parse(json)
+      if (!options.createdAt) {
+        return null
+      }
+
       return new Value(value, options)
     } catch (err) {
       return null

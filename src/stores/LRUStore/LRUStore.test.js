@@ -1,8 +1,17 @@
+import MockDate from 'mockdate'
 import LRUStore from './LRUStore'
 import Value from '../../Value'
 
 describe('LRUStore', () => {
   let store
+
+  beforeAll(() => {
+    MockDate.set('2000-01-01T00:00:00Z')
+  })
+
+  afterAll(() => {
+    MockDate.reset()
+  })
 
   beforeEach(() => {
     store = new LRUStore()
