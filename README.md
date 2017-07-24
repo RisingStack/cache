@@ -15,7 +15,7 @@ npm install --save @risingstack/cache
 yarn add @risingstack/cache
 ```
 
-RSCache assumes Node version 4 or above.
+RSCache assumes Node version 6 or above.
 
 To get started create an `RSCache` instance.
 

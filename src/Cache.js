@@ -36,6 +36,7 @@ export default class Cache<K, V> extends EventEmitter {
         // eslint-disable-next-line no-await-in-loop
         const value = await (
           typeof this.options.timeout === 'number' && this.options.timeout > 0
+            // $FlowFixMe: flow fails to recognize the type checking condition
             ? promiseTimeout(store.get(key), this.options.timeout)
             : store.get(key)
         )
@@ -148,4 +149,4 @@ export default class Cache<K, V> extends EventEmitter {
 }
 
 type wrappedValue<V> = { value: V, cacheOptions: TTLOptions }
-type CacheOptions = { timeout?: Number }
+type CacheOptions = { timeout?: number }
