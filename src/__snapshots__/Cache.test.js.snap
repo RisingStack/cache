@@ -15,14 +15,14 @@ Cache {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -43,14 +43,14 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -71,19 +71,16 @@ Cache {
         "getCount": 2,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 2,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":100}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":100}}",
+      },
     },
   ],
 }
@@ -107,12 +104,9 @@ Cache {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -133,24 +127,18 @@ Cache {
         "getCount": 2,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -171,24 +159,18 @@ Cache {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":1,\\"expire\\":10}}",
+      },
     },
   ],
 }
@@ -209,24 +191,18 @@ Cache {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
   ],
 }
@@ -247,24 +223,18 @@ Cache {
         "getCount": 2,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 2,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"expire\\":0}}",
+      },
     },
   ],
 }
@@ -285,14 +255,14 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -313,24 +283,18 @@ Cache {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"foo\\":\\"bar\\"},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":5}}",
+      },
     },
   ],
 }
@@ -351,24 +315,18 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -389,24 +347,18 @@ Cache {
         "getCount": 2,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -427,24 +379,18 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -465,24 +411,18 @@ Cache {
         "getCount": 2,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":null,\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
   ],
 }
@@ -503,14 +443,14 @@ Cache {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -531,24 +471,18 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000,\\"stale\\":5,\\"expire\\":10}}",
+      },
     },
   ],
 }
@@ -569,14 +503,14 @@ Cache {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -597,14 +531,14 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
     MemoryStore {
       "stats": Object {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [],
+      "store": Map {},
     },
   ],
 }
@@ -625,24 +559,18 @@ Cache {
         "getCount": 1,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }
@@ -663,24 +591,18 @@ Cache {
         "getCount": 2,
         "hitCount": 1,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
     MemoryStore {
       "stats": Object {
         "getCount": 0,
         "hitCount": 0,
       },
-      "store": Array [
-        Array [
-          "key",
-          "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
-        ],
-      ],
+      "store": Map {
+        "key" => "{\\"value\\":{\\"val\\":1},\\"options\\":{\\"createdAt\\":946684800000}}",
+      },
     },
   ],
 }

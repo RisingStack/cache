@@ -1,19 +1,15 @@
-class PromiseTimeoutError extends Error {
-  constructor(message) {
+/* @flow */
+
+export class PromiseTimeoutError extends Error {
+  code: string;
+
+  constructor(message: string) {
     super(message)
     this.code = 'ETIMEDOUT'
   }
 }
 
-function promiseTimeout(originalPromise: Promise, timeout: Number) {
-  if (!originalPromise) {
-    throw new TypeError('originalPromise is required')
-  }
-
-  if (typeof timeout !== 'number') {
-    throw new TypeError('timeout is required to be a number')
-  }
-
+export function promiseTimeout(originalPromise: Promise<any>, timeout: number): Promise<any> {
   return Promise.race([
     // MDN: Generally, if you want to know if a value is a promise or not
     // Promise.resolve(value) it instead and work with the return value as a promise.
@@ -31,3 +27,4 @@ export default {
   promiseTimeout,
   PromiseTimeoutError
 }
+
