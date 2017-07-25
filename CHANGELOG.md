@@ -1,3 +1,10 @@
+<a name="2.0.0"></a>
+# 2.0.0 (2017-07-25)
+
+* chore(package): update dependencies ([e797438](https://github.com/RisingStack/cache/commit/e797438))
+
+BREAKING CHANGE: drop Node v4 support
+
 <a name="1.3.5"></a>
 ## 1.3.5 (2017-03-29)
 
@@ -198,6 +205,3 @@
 ### refactor
 
 * refactor(chore): remove .vscode ab9e2c9
-
-
-
